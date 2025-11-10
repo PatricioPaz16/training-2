@@ -12,23 +12,6 @@ SweetAlert2	Alertas visuales y confirmaciones.
 JSON Server	API REST fake para simular backend.
 Firebase Hosting	Deploy y hosting del proyecto.
 
-Estructura del proyecto
-proyecto-angular/
- ┣ src/
- ┃ ┣ app/
- ┃ ┃ ┣ core/          → servicios globales (ej. autenticación, api)
- ┃ ┃ ┣ shared/        → componentes reutilizables
- ┃ ┃ ┣ features/
- ┃ ┃ ┃ ┣ productos/   → CRUD de productos
- ┃ ┃ ┃ ┣ clientes/    → gestión de clientes
- ┃ ┃ ┃ ┣ ventas/      → registro de ventas
- ┃ ┃ ┃ ┗ compras/     → registro de compras
- ┃ ┃ ┗ app.routes.ts  → rutas principales
- ┃ ┗ styles.css       → configuración Tailwind
- ┣ db.json            → base de datos local para JSON Server
- ┣ angular.json
- ┗ README.md
-
 Instalación y ejecución
 
 Clonar el repositorio
