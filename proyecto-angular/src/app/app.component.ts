@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ProductosMainComponent } from "./features/productos/pages/productosMain/productos-main/productos-main.component";
+import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatSidenavModule} from '@angular/material/sidenav'; 
 
 @Component({
   selector: 'app-root',
-  imports: [ProductosMainComponent, RouterOutlet, MatIconModule, MatSidenavModule],
+  imports: [RouterOutlet, MatIconModule, MatSidenavModule, RouterLinkWithHref],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

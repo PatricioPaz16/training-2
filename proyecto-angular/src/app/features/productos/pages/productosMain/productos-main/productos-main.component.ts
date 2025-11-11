@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductosService, Producto } from '../../../../../Servicios/Produtos/productos.service';
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatSidenavModule} from '@angular/material/sidenav'; 
-
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos-main',
@@ -18,9 +17,29 @@ export class ProductosMainComponent implements OnInit {
   constructor(private productosService: ProductosService){}
 
   ngOnInit(): void {
-    this.productosService.getProductos().subscribe(data => {
-      this.productos = data;
-    })
-  }
+    this.productosService.getProductos().subscribe({
+      next: (data) => {
+        this.productos = data;
 
+        // 🔹 Solo mostramos el mensaje si el array viene vacío
+        if (this.productos.length === 0) {
+          Swal.fire({
+            title: 'Sin productos',
+            text: 'No hay productos disponibles.',
+            icon: 'info',
+            confirmButtonText: 'Aceptar'
+          });
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener productos', err);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudieron cargar los productos.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+        });
+      }
+    });
+  }
 }
