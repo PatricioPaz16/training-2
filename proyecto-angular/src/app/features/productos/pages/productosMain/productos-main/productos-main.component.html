@@ -1,0 +1,30 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer mode="side" class="w-64 bg-gray-800 text-white p-4">
+    <h2 class="text-2xl font-bold mb-6">Menú</h2>
+    <ul class="space-y-2">
+        <li><a routerLink="/dashboard" class="block  p-2 rounded">Dashboard</a></li>
+        <li><a routerLink="/productos" class="block  p-2 rounded">Productos</a></li>
+        <li><a routerLink="/clientes" class="block  p-2 rounded">Clientes</a></li>
+        <li><a routerLink="/ventas" class="block  p-2 rounded">Ventas</a></li>
+        <li><a routerLink="/compras" class="block  p-2 rounded">Compras</a></li>
+    </ul>
+    </mat-drawer>
+    <mat-drawer-content>
+    <button mat-icon-button (click)="drawer.toggle()" class="mb-4">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Listado de Productos</h1>
+
+    @for (p of productos; track p.id) {
+    <div class="p-4 mb-2 bg-white rounded shadow-sm border-l-4 border-blue-500">
+        <h3 class="text-lg font-semibold">{{ p.nombre }}</h3>
+        <p class="text-gray-600">
+        Precio: ${{ p.precio }} — Stock: {{ p.stock }}
+        </p>
+    </div>
+    } @empty {
+    <p class="text-gray-500 italic">No hay productos disponibles.</p>
+    }
+    </mat-drawer-content>
+</mat-drawer-container>
