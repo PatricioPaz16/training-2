@@ -5,24 +5,24 @@ import { Observable } from 'rxjs';
 export interface Producto{
   id?: number;
   nombre: string;
+  categoriaId?: number;
   precio: number;
   stock: number;
 }
 
+export interface Cliente {
+  id: number;
+  nombre: string;
+}
+
 export interface Venta {
   id: number;
+  productoId: number;
+  clienteId: number;
+  cantidad: number;
   fecha: string;
-  total: number;
-  producto: {
-    id: number;
-    nombre: string;
-    precio: number;
-  };
-  cliente: {
-    id: number;
-    nombre: string;
-    correo: string;
-  };
+  producto: Producto;
+  cliente: Cliente;
 }
 
 
@@ -31,7 +31,7 @@ export interface Venta {
 })
 export class ProductosService {
 
-  private apiURL = 'http://localhost:3000/productos'; //este es el url que le puse a JSON server para exponer los datos
+  private apiURL = 'http://localhost:3000/productos'; 
 
   constructor(private http: HttpClient) { }
 
@@ -39,8 +39,8 @@ export class ProductosService {
     return this.http.get<Producto[]>(this.apiURL);
   }
 
-  Buscar(): Observable<Venta>
+  Buscar(ventaId: number = 1): Observable<Venta>
   {
-    return this.http.get<Venta>(`http://localhost:3000/ventas?_expand=producto&_expand=cliente`);
+    return this.http.get<Venta>(`http://localhost:3000/ventas/${ventaId}?_expand=producto&_expand=cliente`);
   }
 }

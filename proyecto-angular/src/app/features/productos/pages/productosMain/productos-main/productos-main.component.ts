@@ -23,7 +23,6 @@ export class ProductosMainComponent implements OnInit {
       next: (data) => {
         this.productos = data;
 
-        // 🔹 Solo mostramos el mensaje si el array viene vacío
         if (this.productos.length === 0) {
           Swal.fire({
             title: 'Sin productos',
@@ -48,7 +47,7 @@ export class ProductosMainComponent implements OnInit {
   }
 
   BuscarVentas(): void {
-    this.productosService.Buscar().subscribe({
+    this.productosService.Buscar(1).subscribe({
       next: (data) => {
         console.log(data);
       },
