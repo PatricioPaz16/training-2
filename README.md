@@ -1,59 +1,59 @@
-Sistema de Compra y Venta – Angular 19
+# ProyectoAngular
 
-Este proyecto es un sistema de compra y venta desarrollado con Angular 19.
-Incluye interfaz moderna con Tailwind CSS y PrimeNG, notificaciones con SweetAlert2, y persistencia de datos simulada mediante JSON Server.
-Está preparado para desplegarse en Firebase Hosting.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
 
-Tecnologías principales
-Angular 19	Framework base del frontend (standalone components).
-Tailwind CSS	Estilos rápidos y personalizables.
-PrimeNG 19	Componentes de UI (botones, tablas, formularios, etc.).
-SweetAlert2	Alertas visuales y confirmaciones.
-JSON Server	API REST fake para simular backend.
-Firebase Hosting	Deploy y hosting del proyecto.
+## Development server
 
-Instalación y ejecución
+To start a local development server, run:
 
-Clonar el repositorio
-git clone https://github.com/tuusuario/proyecto-angular.git
-cd proyecto-angular
-
-
-Instalar dependencias
-npm install
-
-
-Iniciar el servidor Angular
+```bash
 ng serve
+```
 
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-Aplicación disponible en http://localhost:4200
-Iniciar el backend simulado (JSON Server)
-npm run json-server
+## Code scaffolding
 
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-Backend disponible en http://localhost:3000
+```bash
+ng generate component component-name
+```
 
-🔗 Endpoints de ejemplo (JSON Server)
-Entidad	Endpoint
-Productos	http://localhost:3000/productos
-Clientes	http://localhost:3000/clientes
-Ventas	http://localhost:3000/ventas 
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-Estilos y UI
-Tailwind: utilidades en src/styles.css
-PrimeNG: tema lara-light-blue configurado en angular.json
-SweetAlert2: usado en componentes para confirmaciones y mensajes
+```bash
+ng generate --help
+```
 
-Deploy en Firebase Hosting
-Compilar el proyecto:
-ng build --configuration production
-Desplegar:
-firebase deploy
+## Building
 
+To build the project run:
 
-El sitio quedará disponible en tu URL de Firebase.
+```bash
+ng build
+```
 
-Autor
-Dana Perelmuter
-Proyecto de práctica – Sistema de Compra y Venta con Angular 19
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
