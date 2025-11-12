@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductosService, Producto } from '../../../../../Servicios/Produtos/productos.service';
-import { MatIconModule } from '@angular/material/icon'; 
-import { MatSidenavModule} from '@angular/material/sidenav'; 
+import {
+  ProductosService,
+  Producto,
+} from '../../../../../Servicios/Productos/productos.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos-main',
   imports: [MatSidenavModule, MatIconModule],
   templateUrl: './productos-main.component.html',
-  styleUrl: './productos-main.component.css'
+  styleUrl: './productos-main.component.css',
 })
 export class ProductosMainComponent implements OnInit {
+  productos: Producto[] = [];
 
-  productos: Producto[] =[];
-
-  constructor(private productosService: ProductosService){}
+  constructor(private productosService: ProductosService) {}
 
   ngOnInit(): void {
     this.productosService.getProductos().subscribe({
@@ -27,7 +29,7 @@ export class ProductosMainComponent implements OnInit {
             title: 'Sin productos',
             text: 'No hay productos disponibles.',
             icon: 'info',
-            confirmButtonText: 'Aceptar'
+            confirmButtonText: 'Aceptar',
           });
         }
       },
@@ -37,9 +39,19 @@ export class ProductosMainComponent implements OnInit {
           title: 'Error',
           text: 'No se pudieron cargar los productos.',
           icon: 'error',
-          confirmButtonText: 'Cerrar'
+          confirmButtonText: 'Cerrar',
         });
-      }
+      },
+    });
+
+    this.BuscarVentas();
+  }
+
+  BuscarVentas(): void {
+    this.productosService.Buscar().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
     });
   }
 }

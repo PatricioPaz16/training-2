@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Producto } from '../Produtos/productos.service';
+import { Producto } from '../Productos/productos.service';
 
 export interface Cliente{
   id?:number
